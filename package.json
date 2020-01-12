@@ -1,0 +1,27 @@
+{
+  "name": "smolgumball",
+  "version": "1.0.0",
+  "description": "smol but good",
+  "author": "smolgumball",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "node-sass": "^4.13.0",
+    "nuxt": "^2.0.0",
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^8.0.1",
+    "vue-script2": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4"
+  }
+}
