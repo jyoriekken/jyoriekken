@@ -8,10 +8,6 @@ export default {
   mounted() {
     window.exploder = new EmojiExploder.default()
 
-    window.addEventListener('mousedown', function(t) {
-      window.exploder.explodeAtCursor()
-    })
-
     setInterval(function() {
       if (!document.hasFocus()) return
       let { cursorX, cursorY } = window.exploder
@@ -85,15 +81,5 @@ a:active {
 a:hover {
   color: tomato;
   text-decoration: none;
-}
-
-footer {
-  width: 105px;
-  height: 105px;
-  text-align: center;
-  margin: 5vh auto 2vh auto;
-  padding: 2em;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.25);
 }
 </style>
