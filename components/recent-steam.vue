@@ -3,7 +3,7 @@
     h2.games_headline
       | Games...?
       div
-        a(href='https://youtu.be/X3s9RVg2STY?t=3' target='_blank' rel='noreferrer') Love games!?
+        a(href='https://www.youtube.com/watch?v=DYivGrFkgIk' target='_blank' rel='noreferrer') Love games!?
           img(src='/mr-gregg.jpg')
     .games_wrap
       .games_loading(v-if='!validGames.length')
