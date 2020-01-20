@@ -1,0 +1,6 @@
+[build]
+  functions = "lambda"
+
+[dev]
+  command = "yarn dev"
+  autoLaunch = false

@@ -24,9 +24,7 @@
 </template>
 
 <script>
-const API_KEY = '020DBB95A9523156E09E5AE111D8F256'
-const MY_STEAM_ID = '76561197984309510'
-const ENDPOINT_RECENT = `https://cors-anywhere.herokuapp.com/http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${API_KEY}&steamid=${MY_STEAM_ID}&format=json`
+const ENDPOINT_RECENT = `/.netlify/functions/get-recent-steam-games`
 
 export default {
   data() {
@@ -36,6 +34,7 @@ export default {
   },
   computed: {
     validGames() {
+      if (!this.games.length) return []
       return this.games.filter(x => !!x.name)
     }
   },
@@ -46,15 +45,14 @@ export default {
       try {
         res = await fetch(ENDPOINT_RECENT)
         json = await res.json()
-        if (!json.response || !json.response.games) {
+        if (!json) {
           throw 'no resp'
         }
-        console.log(json)
       } catch (err) {
         console.error(err)
       }
-      this.games = json.response.games
-    }, 1000)
+      this.games = json
+    }, 10)
   },
   methods: {
     imgEndpoint(appId, hash) {
@@ -117,6 +115,7 @@ export default {
   }
 
   img {
+    border-radius: 50%;
     transition: all 0.4s;
     opacity: 0;
     pointer-events: none;

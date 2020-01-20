@@ -5,13 +5,14 @@
   "author": "smolgumball",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
+    "dotenv-flow": "^3.1.0",
     "node-sass": "^4.13.0",
     "nuxt": "^2.0.0",
     "pug": "^2.0.4",
