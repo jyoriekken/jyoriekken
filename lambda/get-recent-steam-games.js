@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-exports.handler = async function(event, context) {
+export async function handler(event, context) {
   const API_KEY = process.env.STEAM_API_KEY
   const MY_STEAM_ID = process.env.MY_STEAM_ID
   const ENDPOINT_RECENT = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${API_KEY}&steamid=${MY_STEAM_ID}&format=json`
