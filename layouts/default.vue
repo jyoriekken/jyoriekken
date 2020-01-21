@@ -21,11 +21,13 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: hotpink;
   color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 16px;
   overflow-x: hidden;
+
+  background-color: hotpink;
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
 }
 
 .container {
