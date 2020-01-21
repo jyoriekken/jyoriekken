@@ -19,18 +19,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 body {
   background-color: hotpink;
   color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 14px;
-}
-
-@media (min-width: 540px) {
-  body {
-    font-size: 16px;
-  }
+  font-size: 16px;
+  overflow-x: hidden;
 }
 
 .container {
@@ -41,7 +36,7 @@ body {
 }
 
 header {
-  margin-top: 10vh;
+  margin-top: 7vh;
 }
 
 h1 {

@@ -1,10 +1,16 @@
 <template lang="pug">
   .recent_games
     h2.games_headline
-      | Games...?
+      | Games...
       div
-        a(href='https://www.youtube.com/watch?v=DYivGrFkgIk' target='_blank' rel='noreferrer') Love games!?
+        a(href='https://www.youtube.com/watch?v=DYivGrFkgIk' target='_blank' rel='noreferrer') Love games?
           img(src='/mr-gregg.jpg')
+    p.join_me
+      | I play a lot of vidja. Reach out and
+      |
+      a(href='https://steamcommunity.com/id/smolgumball' target='_blank' rel='noreferrer') friend me on Steam
+      |
+      | so we can play togther! Here's a realtime peek at my current favs 👀
     .games_wrap
       .games_loading(v-if='!validGames.length')
       .games_inner(v-else)
@@ -19,12 +25,12 @@
           img.game_img(:src='imgEndpoint(game.appid, game.img_logo_url)')
           .game_playtime(v-if='+game.playtime_2weeks > 0')
             | {{ playTime(game) }}
-    a.games_chin(href='https://steamcommunity.com/id/smolgumball' target='_blank' rel='noreferrer')
-      | Friend me on Steam, let's play games!
 </template>
 
 <script>
-const ENDPOINT_RECENT = `/.netlify/functions/get-recent-steam-games`
+const devPrefix =
+  process.env.NODE_ENV == 'development' ? 'http://localhost:9000' : ''
+const ENDPOINT_RECENT = `${devPrefix}/.netlify/functions/get-recent-steam-games`
 
 export default {
   data() {
@@ -73,11 +79,11 @@ export default {
 
 <style lang="scss">
 .recent_games {
-  margin-top: 8vh;
+  margin-top: 6vh;
 }
 
 .games_headline {
-  font-size: 24px;
+  font-size: 18px;
   color: black;
   font-weight: 700;
   text-transform: uppercase;
@@ -88,6 +94,10 @@ export default {
                3px 3px 1px white,
                4px 4px 1px brown;
 
+  @media (min-width: 540px) {
+    font-size: 24px;
+  }
+
   div {
     position: relative;
     display: inline-block;
@@ -95,12 +105,12 @@ export default {
     color: #ff0076;
     padding: 5px;
     background-color: rgba(255, 255, 0, 0.5);
-  }
 
-  div:hover {
-    img {
-      opacity: 1;
-      transform: translateY(-5px);
+    &:hover {
+      img {
+        opacity: 1;
+        transform: translateY(-5px);
+      }
     }
   }
 
@@ -123,19 +133,52 @@ export default {
     width: 125px;
     top: -100%;
     left: calc(100% + 1em);
+    display: none;
+
+    @media (min-width: 540px) {
+      display: block;
+    }
+  }
+}
+
+.join_me {
+  margin-top: 1em;
+  font-size: 16px;
+  color: #560930;
+  line-height: 1.45;
+
+  a {
+    display: inline-block;
+    color: bisque;
+    text-decoration: none;
+    padding: 0 0.3em;
+    background-color: deeppink;
+    font-size: 14px;
+
+    &:hover {
+      background-color: bisque;
+      color: deeppink;
+    }
+
+    @media (min-width: 540px) {
+      font-size: 16px;
+    }
   }
 }
 
 .games_wrap {
-  margin-top: 2em;
+  margin-top: 1.5em;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 1em;
 }
 
 .games_inner {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   grid-gap: 2ch;
+
+  @media (min-width: 540px) {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
 }
 
 .games_loading {
@@ -150,7 +193,7 @@ export default {
 }
 
 .game_name {
-  width: 170px;
+  max-width: 170px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -163,16 +206,20 @@ export default {
 
 .game_img {
   display: block;
+  box-shadow: 8px 12px 15px fade-out(deeppink, 0.75);
 }
 
 .game_playtime {
-  float: right;
   margin-top: 0.5em;
   display: inline-block;
   padding: 0.1em 0.5em;
   background-color: rgba(255, 255, 255, 0.5);
   color: black;
   border-radius: 15px;
+
+  @media (min-width: 540px) {
+    float: right;
+  }
 }
 
 .games_chin {

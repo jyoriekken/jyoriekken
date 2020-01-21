@@ -6,7 +6,8 @@
       ul.links
         li
           | 👩‍💻&nbsp;
-          a(href='https://github.com/smolgumball' target='_blank' rel='noreferrer') https://github.com/smolgumball
+          a(href='https://github.com/smolgumball' target='_blank' rel='noreferrer')
+            | github
           ul
             li
               | 🎥 #[a(href='https://github.com/smolgumball/node-twitch-vod-export') twitch VOD exporter]
@@ -16,13 +17,16 @@
               | 💥 #[a(href='https://github.com/smolgumball/emoji-exploder') emoji exploder]
         li
           | 📺&nbsp;
-          a(href='https://www.twitch.tv/smolgumball' target='_blank' rel='noreferrer') https://www.twitch.tv/smolgumball
+          a(href='https://www.twitch.tv/smolgumball' target='_blank' rel='noreferrer')
+            | twitch.tv
         li
           | 🐤&nbsp;
-          a(href='https://twitter.com/smol_gumball' target='_blank' rel='noreferrer') https://twitter.com/smol_gumball
+          a(href='https://twitter.com/smol_gumball' target='_blank' rel='noreferrer')
+            | twitter
         li
           | 🎮&nbsp;
-          a(href='https://steamcommunity.com/id/smolgumball' target='_blank' rel='noreferrer') https://steamcommunity.com/id/smolgumball
+          a(href='https://steamcommunity.com/id/smolgumball' target='_blank' rel='noreferrer')
+            | steam
 
       // Steam gamz
       recent-steam
@@ -44,7 +48,7 @@ export default {
 
 <style lang="scss">
 h1 {
-  font-size: 54px;
+  font-size: 32px;
   text-align: left;
   color: #86b3d7;
   font-weight: 700;
@@ -60,6 +64,10 @@ h1 {
                9px 9px 1px brown,
                11px 11px 1px black;
 
+  @media (min-width: 540px) {
+    font-size: 54px;
+  }
+
   div {
     color: white;
     margin-top: -10px;
@@ -72,7 +80,12 @@ h1 {
 .links {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 1.5em 2.5em;
-  margin-top: 8vh;
+  margin-top: 6vh;
+  font-size: 14px;
+
+  @media (min-width: 540px) {
+    font-size: 16px;
+  }
 }
 
 footer {
