@@ -62,7 +62,8 @@ export default {
   },
   methods: {
     imgEndpoint(appId, hash) {
-      return `http://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${hash}.jpg`
+      // return `http://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${hash}.jpg`
+      return `https://steamcdn-a.akamaihd.net/steam/apps/${appId}/header.jpg`
     },
     playTime(game) {
       const time = game.playtime_2weeks
@@ -206,6 +207,7 @@ export default {
 
 .game_img {
   display: block;
+  width: 100%;
   box-shadow: 8px 12px 15px fade-out(deeppink, 0.75);
 }
 
@@ -220,15 +222,5 @@ export default {
   @media (min-width: 540px) {
     float: right;
   }
-}
-
-.games_chin {
-  display: block;
-  padding: 0.75em 1em;
-  background-color: lavender;
-  text-transform: lowercase;
-  margin: 0;
-  color: inherit;
-  text-align: center;
 }
 </style>

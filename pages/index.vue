@@ -31,6 +31,9 @@
       // Steam gamz
       recent-steam
 
+      // Steam screenshots
+      recent-screenshots
+
     footer
       span 💙#[br]smol#[br]gumball
 
@@ -38,10 +41,12 @@
 
 <script>
 import RecentSteam from '~/components/recent-steam'
+import RecentScreenshots from '~/components/recent-screenshots'
 
 export default {
   components: {
-    RecentSteam
+    RecentSteam,
+    RecentScreenshots
   }
 }
 </script>
