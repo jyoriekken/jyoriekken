@@ -3,6 +3,17 @@
 </template>
 
 <script>
+/**
+ * TODO
+ * * Structure w/ Vue data
+ * * Cleanup event handlers w/ removeEventListener on destroy
+ * * Consider non-planck implementation for lighter weight
+ * * Use fetch vs. XHR
+ * * Allow swapping of scroll sound through props
+ * * Allow tuning of speed, volume, decay, etc. through props
+ * *
+ */
+
 export default {
   data() {
     return {}
@@ -98,6 +109,9 @@ export default {
 
       window.prevScrollY = window.scrollY
       document.addEventListener('scroll', function(event) {
+        if (window.audioCtx) {
+          window.audioCtx.resume()
+        }
         const delta = Math.abs(window.scrollY - window.prevScrollY)
         const impulse = delta * 200
         window.prevScrollY = window.scrollY

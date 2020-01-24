@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     validGames() {
-      if (!this.games || this.games.length) return []
+      if (!this.games || !this.games.length) return []
       return this.games.filter(x => !!x.name)
     }
   },
