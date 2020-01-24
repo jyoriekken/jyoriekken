@@ -32,7 +32,7 @@ export default {
       gainNode.gain.value = 0
 
       let request = new XMLHttpRequest()
-      request.open('GET', '/sound/scroll-drone.wav', true)
+      request.open('GET', '/sound/scroll-crinkle.wav', true)
       request.responseType = 'arraybuffer'
 
       request.onload = function() {
@@ -71,7 +71,7 @@ export default {
       const world = new pl.World()
 
       let circle = world.createDynamicBody({
-        linearDamping: 7,
+        linearDamping: 14,
         fixedRotation: true
       })
       let fixture = circle.createFixture(pl.Circle(2.0), {
@@ -88,13 +88,13 @@ export default {
         world.step(1 / 60)
 
         const velY = roundNumber(Math.abs(circle.getLinearVelocity().y), 2)
-        const gainValue = scale(velY, [0, 100], [0, 0.3])
-        const playbackRate = scale(velY, [0, 100], [0.2, 2.5])
+        const gainValue = scale(velY, [0, 100], [0, 0.05])
+        const playbackRate = scale(velY, [0, 100], [1, 1.1])
 
         window.gainNode.gain.value = lerp(
           window.gainNode.gain.value,
           gainValue,
-          0.1
+          0.8
         )
         window.sfxSource.playbackRate.value = lerp(
           window.sfxSource.playbackRate.value,
