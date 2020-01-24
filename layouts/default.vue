@@ -66,13 +66,10 @@ ul li ul {
   line-height: 1;
 }
 
-a {
-  color: blue;
-}
-
+a,
 a:visited,
 a:active {
-  color: blueviolet;
+  color: #ff0081;
 }
 
 a:hover {

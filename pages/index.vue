@@ -78,12 +78,16 @@ h1 {
     margin-top: -10px;
     padding: 10px;
     letter-spacing: 0.3em;
-    background-color: violet;
+    background-color: rgba(255, 159, 219, 0.69);
   }
 }
 
 .links {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #ffb4da;
+  background-image: url('/hexasm.jpg');
+  background-size: 830px;
+  background-position: top left;
+  background-blend-mode: luminosity;
   padding: 1.5em 2.5em;
   margin-top: 6vh;
   font-size: 14px;
