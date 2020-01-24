@@ -1,5 +1,5 @@
 <template lang="pug">
-  .recent_screenshots
+  .smol_steam_screenshots
     h2.screenshots_headline
       | 📸
       div Fresh
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
-.recent_screenshots {
+.smol_steam_screenshots {
   margin-top: 6vh;
 }
 
@@ -75,39 +75,6 @@ export default {
     color: blue;
     padding: 5px 10px 5px 5px;
     background-color: #adf19a;
-
-    &:hover {
-      img {
-        opacity: 1;
-        transform: translateY(-5px);
-      }
-    }
-  }
-
-  a {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-
-    &:hover {
-      color: blue;
-    }
-  }
-
-  img {
-    border-radius: 50%;
-    transition: all 0.4s;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    width: 125px;
-    top: -100%;
-    left: calc(100% + 1em);
-    display: none;
-
-    @media (min-width: 540px) {
-      display: block;
-    }
   }
 }
 
@@ -127,7 +94,7 @@ export default {
 }
 
 .screenshots_loading {
-  height: 300px;
+  height: 430px;
   background-color: rgba(255, 255, 255, 0.2);
 }
 

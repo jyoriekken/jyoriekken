@@ -1,5 +1,5 @@
 <template lang="pug">
-  .recent_games
+  .smol_steam_recent
     h2.games_headline
       | Games...
       div
@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss">
-.recent_games {
+.smol_steam_recent {
   margin-top: 6vh;
 }
 

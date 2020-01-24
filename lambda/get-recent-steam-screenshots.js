@@ -32,43 +32,22 @@ export async function handler(event, context) {
     return screenshotDetailPages.slice(0, 6)
   }
 
-  async function getScreenshotImages(screenshotDetailPages) {
-    const mockData = [
-      {
-        fileId: 1957897542,
-        imgThumbnail:
-          'https://steamuserimages-a.akamaihd.net/ugc/772863713197024590/7D661D873ABA3F61CE0B24AFAB443CB348D1C525/?imw=512&impolicy=Letterbox',
-        imgFullsize:
-          'https://steamuserimages-a.akamaihd.net/ugc/772863713197024590/7D661D873ABA3F61CE0B24AFAB443CB348D1C525/'
-      },
-      {
-        fileId: 1974776873,
-        imgThumbnail:
-          'https://steamuserimages-a.akamaihd.net/ugc/770613521987762482/AE907682F4B9DC046FE70DDDC77212FE5C0A0577/?imw=512&impolicy=Letterbox',
-        imgFullsize:
-          'https://steamuserimages-a.akamaihd.net/ugc/770613521987762482/AE907682F4B9DC046FE70DDDC77212FE5C0A0577/'
-      }
-    ]
+  async function getScreenshotUrls(url) {
+    let fileId = url.match(/\?id=(\d+)/)
+    if (!fileId[1]) return
 
-    async function getImageData(url) {
-      let fileId = url.match(/\?id=(\d+)/)
-      if (!fileId[1]) return
+    // Good fileId value
+    fileId = fileId[1]
+    const detailPage = await fetch(url)
+    const detailPageSource = await detailPage.text()
+    const $pageDom = cheerio.load(detailPageSource)
+    const fullsizeImageUrl = $pageDom('.actualmediactn a').attr('href')
 
-      // Good fileId value
-      fileId = fileId[1]
-      const detailPage = await fetch(url)
-      const detailPageSource = await detailPage.text()
-      const $pageDom = cheerio.load(detailPageSource)
-      const fullsizeImageUrl = $pageDom('.actualmediactn a').attr('href')
-
-      return {
-        fileId,
-        imgThumbnail: `${fullsizeImageUrl}?imw=512&impolicy=Letterbox`,
-        imgFullsize: `${fullsizeImageUrl}`
-      }
+    return {
+      fileId,
+      imgThumbnail: `${fullsizeImageUrl}?imw=512&impolicy=Letterbox`,
+      imgFullsize: `${fullsizeImageUrl}`
     }
-
-    return await Promise.all(screenshotDetailPages.map(getImageData))
   }
 
   try {
@@ -82,7 +61,9 @@ export async function handler(event, context) {
     }
     const screenshotPageSource = await response.text()
     const screenshotDetailPages = getFileDetailUrls(screenshotPageSource)
-    const screenshotImages = await getScreenshotImages(screenshotDetailPages)
+    const screenshotImages = await Promise.all(
+      screenshotDetailPages.map(getScreenshotUrls)
+    )
     return addCorsHeaders({
       statusCode: response.status,
       body: JSON.stringify(screenshotImages)
