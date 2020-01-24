@@ -4,12 +4,6 @@ import cheerio from 'cheerio'
 export async function handler(event, context) {
   const SCREENSHOTS_PAGE = `https://steamcommunity.com/id/smolgumball/screenshots`
 
-  async function asyncForEach(array, callback) {
-    for (let index = 0; index < array.length; index++) {
-      await callback(array[index], index, array)
-    }
-  }
-
   function addCorsHeaders(returnObject) {
     const corsHeaders = {
       'Access-Control-Allow-Origin': '*',
