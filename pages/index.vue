@@ -1,5 +1,8 @@
 <template lang="pug">
   div
+    // Woosh
+    smol-scroll-woosh
+
     header.container
       h1 smol #[div gumball]
     main.container
@@ -42,46 +45,18 @@
 <script>
 import SmolSteamRecent from '~/components/smol-steam-recent'
 import SmolSteamScreenshots from '~/components/smol-steam-screenshots'
+import SmolScrollWoosh from '~/components/smol-scroll-woosh'
 
 export default {
   components: {
     SmolSteamRecent,
-    SmolSteamScreenshots
+    SmolSteamScreenshots,
+    SmolScrollWoosh
   }
 }
 </script>
 
 <style lang="scss">
-h1 {
-  font-size: 32px;
-  text-align: left;
-  color: #86b3d7;
-  font-weight: 700;
-  text-transform: uppercase;
-
-  /* prettier-ignore */
-  text-shadow: 1px 1px 1px brown,
-               2px 2px 1px black,
-               3px 3px 1px brown,
-               4px 4px 1px black,
-               5px 5px 1px brown,
-               7px 7px 1px black,
-               9px 9px 1px brown,
-               11px 11px 1px black;
-
-  @media (min-width: 540px) {
-    font-size: 54px;
-  }
-
-  div {
-    color: white;
-    margin-top: -10px;
-    padding: 10px;
-    letter-spacing: 0.3em;
-    background-color: rgba(255, 159, 219, 0.69);
-  }
-}
-
 .links {
   background-color: #ffb4da;
   background-image: url('/hexasm.jpg');
@@ -94,21 +69,6 @@ h1 {
 
   @media (min-width: 540px) {
     font-size: 16px;
-  }
-}
-
-footer {
-  width: 105px;
-  height: 105px;
-  text-align: center;
-  margin: 8vh auto;
-  padding: 2em;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.25);
-
-  span {
-    position: relative;
-    top: 20px;
   }
 }
 </style>

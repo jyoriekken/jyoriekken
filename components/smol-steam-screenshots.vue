@@ -41,6 +41,7 @@ export default {
       } catch (err) {
         console.error(err)
       }
+      if (!json) return
       this.screenshots = json
     }, 10)
   }

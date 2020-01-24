@@ -20,6 +20,7 @@
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.0",
     "nuxt": "^2.0.0",
+    "planck-js": "^0.3.12",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^8.0.1",
