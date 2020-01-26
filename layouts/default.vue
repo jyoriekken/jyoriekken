@@ -22,7 +22,7 @@ export default {
 <style lang="scss">
 body {
   color: black;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
   overflow-x: hidden;
 
@@ -44,8 +44,9 @@ header {
     font-size: 32px;
     text-align: left;
     color: #86b3d7;
-    font-weight: 700;
+    font-weight: 900;
     text-transform: uppercase;
+    letter-spacing: 0.2em;
 
     /* prettier-ignore */
     text-shadow: 1px 1px 1px brown,
@@ -63,9 +64,8 @@ header {
 
     div {
       color: white;
-      margin-top: -10px;
+      margin: -10px 0 0 -10px;
       padding: 10px;
-      letter-spacing: 0.3em;
       background-color: rgba(255, 159, 219, 0.69);
     }
   }

@@ -42,7 +42,7 @@ export default {
           audioData,
           function(buffer) {
             sfxSource.buffer = buffer
-            sfxSource.playbackRate.value = 0.4
+            sfxSource.playbackRate.value = 0
             sfxSource.loop = true
             sfxSource.connect(gainNode)
             gainNode.connect(audioCtx.destination)
@@ -88,7 +88,7 @@ export default {
         world.step(1 / 60)
 
         const velY = roundNumber(Math.abs(circle.getLinearVelocity().y), 2)
-        const gainValue = scale(velY, [0, 100], [0, 0.05])
+        const gainValue = scale(velY, [0, 100], [0, 0.1])
         const playbackRate = scale(velY, [0, 100], [1, 1.1])
 
         window.gainNode.gain.value = lerp(

@@ -20,6 +20,12 @@ export default {
         rel: 'stylesheet',
         type: 'text/css',
         href: 'https://emoji-exploder.netlify.com/dist/index.css'
+      },
+      {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href:
+          'https://fonts.googleapis.com/css?family=Lato:400,900&display=swap'
       }
     ]
   },
