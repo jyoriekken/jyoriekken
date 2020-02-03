@@ -50,6 +50,8 @@ export default {
             window.audioCtx = audioCtx
             window.sfxSource = sfxSource
             window.gainNode = gainNode
+
+            kickoffAudio(window.audioCtx)
           },
 
           function(e) {
@@ -58,6 +60,22 @@ export default {
         )
 
         sfxSource.start(0)
+      }
+
+      function kickoffAudio(audioCtx) {
+        if (audioCtx.state === 'suspended') {
+          var events = ['touchstart', 'touchend', 'mousedown', 'keydown']
+          var unlock = function unlock() {
+            events.forEach(function(event) {
+              document.body.removeEventListener(event, unlock)
+            })
+            audioCtx.resume()
+          }
+
+          events.forEach(function(event) {
+            document.body.addEventListener(event, unlock, false)
+          })
+        }
       }
 
       request.send()
@@ -109,9 +127,6 @@ export default {
 
       window.prevScrollY = window.scrollY
       document.addEventListener('scroll', function(event) {
-        if (window.audioCtx) {
-          window.audioCtx.resume()
-        }
         const delta = Math.abs(window.scrollY - window.prevScrollY)
         const impulse = delta * 200
         window.prevScrollY = window.scrollY
