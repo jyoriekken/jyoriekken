@@ -19,14 +19,6 @@
             li
               | 💥 #[a(href='https://github.com/smolgumball/emoji-exploder') emoji exploder]
         li
-          | 📺&nbsp;
-          a(href='https://www.twitch.tv/smolgumball' target='_blank' rel='noreferrer')
-            | twitch.tv
-        li
-          | 🐤&nbsp;
-          a(href='https://twitter.com/smol_gumball' target='_blank' rel='noreferrer')
-            | twitter
-        li
           | 🎮&nbsp;
           a(href='https://steamcommunity.com/id/smolgumball' target='_blank' rel='noreferrer')
             | steam
