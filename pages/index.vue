@@ -13,6 +13,8 @@
             | github
           ul
             li
+              | 💻 #[a(href='https://github.com/smolgumball/bb-vue') bb-vue - use Vue to enhance BitBurner]
+            li
               | 🎥 #[a(href='https://github.com/smolgumball/node-twitch-vod-export') twitch VOD exporter]
             li
               | 🌐 #[a(href='https://github.com/smolgumball/webby-site') this website]
